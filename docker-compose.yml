@@ -1,0 +1,7 @@
+services:
+  smart-library-api:
+    build: .
+    container_name: smart-library-api
+    ports:
+      - "5001:5000"
+    restart: unless-stopped
