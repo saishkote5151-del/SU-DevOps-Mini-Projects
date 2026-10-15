@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smart-library
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: smart-library
+  template:
+    metadata:
+      labels:
+        app: smart-library
+    spec:
+      containers:
+        - name: smart-library
+          image: smart-library-management:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
