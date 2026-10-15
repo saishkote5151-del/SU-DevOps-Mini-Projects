@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblios Smart Library</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <section class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <div class="logo">
+        <div class="logo-mark">B</div>
+        <strong>biblios <span>library</span></strong>
+      </div>
+
+      <p class="eyebrow mint">ENTERPRISE LIBRARY SYSTEM</p>
+      <h1>Welcome back<span>.</span></h1>
+      <p>Sign in to manage books, members, loans, and library services.</p>
+
+      <form id="loginForm">
+        <label>
+          Email address
+          <input id="email" type="email" placeholder="you@library.edu" required>
+        </label>
+
+        <label>
+          Access role
+          <select id="role">
+            <option value="Librarian">Librarian</option>
+            <option value="Student">Student</option>
+            <option value="Teacher">Teacher</option>
+            <option value="Administrator">Administrator</option>
+          </select>
+        </label>
+
+        <label>
+          Password
+          <input id="password" type="password" placeholder="Enter password" required>
+        </label>
+
+        <button class="primary-button" type="submit">
+          Sign in to Biblios →
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-mark">B</div>
+      <strong>biblios <span>library</span></strong>
+    </div>
+
+    <nav>
+      <button class="nav-item active" data-page="dashboard">
+        ▦ <span>Dashboard</span>
+      </button>
+
+      <button class="nav-item" data-page="catalogue">
+        ▤ <span>Catalogue</span>
+      </button>
+
+      <button class="nav-item" data-page="members">
+        ♙ <span>Members</span>
+      </button>
+
+      <button class="nav-item" data-page="loans">
+        ↔️ <span>Loans & Returns</span>
+      </button>
+
+      <button class="nav-item" data-page="devops">
+        ◌ <span>DevOps Control</span>
+      </button>
+    </nav>
+
+    <div class="environment">
+      <small><i class="live"></i> PRODUCTION</small>
+      <strong>All systems healthy</strong>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <div>
+        <p class="date">SATURDAY, OCTOBER 10</p>
+        <h1 id="welcomeText">Library command center<span>.</span></h1>
+      </div>
+
+      <div class="header-actions">
+        <label class="search-box">
+          ⌕
+          <input id="searchInput" type="search" placeholder="Find a book or author">
+        </label>
+
+        <button class="outline-button" id="logoutBtn">
+          Log out
+        </button>
+
+        <button class="primary-button librarian-only" id="addBookBtn">
+          ＋ Add book
+        </button>
+      </div>
+    </header>
+
+    <section id="dashboardPage">
+      <section class="hero">
+        <div>
+          <p class="eyebrow mint">SMART LIBRARY / LIVE OVERVIEW</p>
+          <h2>Knowledge, in motion<span>.</span></h2>
+          <p>
+            Keep your collection discoverable, your loans on track, and your
+            library team connected through one operational workspace.
+          </p>
+
+          <button class="primary-button librarian-only" id="issueBookBtn">
+            Issue a book →
+          </button>
+        </div>
+
+        <div class="hero-orbit"></div>
+      </section>
+
+      <section class="stats">
+        <article class="stat-card">
+          <p>TOTAL TITLES</p>
+          <strong id="totalBooks">4,286</strong>
+          <small>↑ 84 added this month</small>
+        </article>
+
+        <article class="stat-card">
+          <p>ACTIVE MEMBERS</p>
+          <strong id="totalMembers">1,248</strong>
+          <small>↑ 12% this semester</small>
+        </article>
+
+        <article class="stat-card">
+          <p>BOOKS ON LOAN</p>
+          <strong>387</strong>
+          <small>88% returned on time</small>
+        </article>
+
+        <article class="stat-card">
+          <p>OVERDUE ITEMS</p>
+          <strong>14</strong>
+          <small class="danger">Needs follow-up today</small>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <section class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="date">CATALOGUE ACTIVITY</p>
+              <h3>Recently accessed</h3>
+            </div>
+
+            <button class="text-button" id="catalogueBtn">
+              Open catalogue →
+            </button>
+          </div>
+
+          <div id="bookList"></div>
+        </section>
+
+        <section class="panel">
+          <p class="date">QUICK ACTIONS</p>
+          <h3>Library operations</h3>
+
+          <div class="quick-actions librarian-only">
+            <button data-action="book">＋ Add a book</button>
+            <button data-action="loan">↔️ Issue or return a book</button>
+            <button data-action="member">♙ Register a member</button>
+          </div>
+
+          <p class="student-message" id="studentMessage">
+            Search the catalogue and view your library resources.
+          </p>
+        </section>
+      </section>
+
+      <section class="panel devops-panel">
+        <p class="date">DEVOPS FOUNDATION</p>
+        <h3>Deployment pipeline</h3>
+
+        <div class="pipeline">
+          <div class="pipeline-stage">
+            <i></i>
+            <strong>Git</strong>
+            <small>main</small>
+          </div>
+
+          <div class="pipeline-stage">
+            <i></i>
+            <strong>CI</strong>
+            <small>passed</small>
+          </div>
+
+          <div class="pipeline-stage">
+            <i></i>
+            <strong>Docker</strong>
+            <small>healthy</small>
+          </div>
+
+          <div class="pipeline-stage">
+            <i></i>
+            <strong>Kubernetes</strong>
+            <small>3 pods</small>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section id="pageContent" class="panel hidden"></section>
+  </main>
+
+  <dialog id="recordDialog">
+    <button class="close-button" id="closeDialog">×</button>
+    <p class="eyebrow mint" id="dialogLabel">NEW BOOK</p>
+    <h2 id="dialogTitle">Add a book</h2>
+
+    <form id="recordForm">
+      <label>
+        <span id="firstFieldLabel">Book title</span>
+        <input id="firstField" required>
+      </label>
+
+      <label>
+        <span id="secondFieldLabel">Author</span>
+        <input id="secondField" required>
+      </label>
+     
+
+      <label>
+        Status
+        <select id="statusField">
+          <option value="Available">Available</option>
+          <option value="On loan">On loan</option>
+        </select>
+      </label>
+
+      <button class="primary-button" type="submit">
+        Save record
+      </button>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
